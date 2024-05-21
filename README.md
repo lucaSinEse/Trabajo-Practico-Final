@@ -2,7 +2,7 @@
 
 ## Autor/es
 
-- [@Autor](https://github.com/lucaSinEse)
+- [@Luca](https://github.com/lucaSinEse)
 
 ## Documentation
 
