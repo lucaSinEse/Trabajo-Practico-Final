@@ -1,4 +1,4 @@
-const URL = 'https://api.yumserver.com/15319/products';
+const URL = "https://api.yumserver.com/15319/products";
 function mostrarProductos() {
   fetch(URL)
     .then((response) => response.json())
@@ -9,15 +9,17 @@ function mostrarProductos() {
 function imprimirProductos(productos) {
   let html = ` `;
   let idcod;
+  console.log(productos);
   for (let index = 0; index < productos.length; index++) {
+    idcod = productos[index].idcod;
     html += `
             <tr>
                 <td>${productos[index].fecha}</td>
                 <td>${productos[index].titulo}</td>
                 <td>${productos[index].precioPeso}</td>
                 <td>${productos[index].precioDolar}</td>
-                <td><button class='editar' onclick="abrirFormulario('${productos[index].idcod}')">Editar</button></td>
-                <td><button class='eliminar' onclick= eliminarProducto('${idcod}')>Eliminar</button></td>
+                <td><button class='editar' onclick="abrirFormulario('${idcod}')">Editar</button></td>
+                <td><button class='eliminar' onclick= abrirDialogEliminar('${idcod}')>Eliminar</button></td>
             </tr>
         `;
   }
@@ -67,4 +69,27 @@ function editarProducto() {
     .catch((error) => console.log("Error: ", error));
 
   document.getElementById("formularioEditar").close();
+}
+
+function abrirDialogEliminar(idcod) {
+  console.log(idcod);
+  document.getElementById("dialogEliminar").showModal();
+  document.getElementById("idEliminar").textContent = idcod;
+}
+
+function eliminarProducto() {
+  let idcodEliminar = document.getElementById("idEliminar").textContent;
+
+  fetch(URL, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      idcod: idcodEliminar,
+    }),
+  })
+    .then((response) => response.text())
+    .then((data) => console.log(data))
+    .catch((error) => console.log("Error: ", error));
+
+  document.getElementById("dialogEliminar").close();
 }
