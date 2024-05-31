@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trabajo Practico Final</title>
     <!-- <link rel="stylesheet" href="./estilos.css"> -->
-</head>
-<body>
+  </head>
+  <body>
     <script src="./components/header.js"></script>
     <main>
-        <div class="c-filtro">
-            <h2>Filtro</h2>
-        <input type="text" name="filtro" id="filtro" placeholder="Nombre del producto: ">
-        </div>
-        <div class="tablaDeProductos">
-            <button onclick="mostrarProductos()">Todos los productos</button>
-            <table>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Titulo</th>
-                    <th>Precio Pesos</th>
-                    <th>Precio Dolares</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-                <tbody id='todosLosProductos'>
-    
-                </tbody>
-            </table>
-        </div>
-    </main>
+      <div class="c-filtro">
+        <h2>Filtro</h2>
+        <input
+          type="text"
+          name="filtro"
+          id="filtro"
+          placeholder="Nombre del producto: "
+        />
+      </div>
+      <div class="tablaDeProductos">
+        <button onclick="mostrarProductos()">Todos los productos</button>
+        <table>
+          <tr>
+            <th>Fecha</th>
+            <th>Titulo</th>
+            <th>Precio Pesos</th>
+            <th>Precio Dolares</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+          <tbody id="todosLosProductos"></tbody>
+        </table>
+      </div>
+      <dialog id="formularioEditar">
+        <form action="#">
+          <input type="text" name="id" id="id" disabled />
+          <input
+            type="text"
+            name="nombre"
+            id="tituloProductoEditado"
+            placeholder="Edite el producto"
+          />
+          <input
+            type="number"
+            name="precioPeso"
+            id="precioPesoEditado"
+            placeholder="Edite el precio en pesos"
+          />
+          <input
+            type="number"
+            name="precioDolar"
+            id="precioDolarEditado"
+            placeholder="Edite el precio en dolares"
+          />
+          <input
+            type="date"
+            name="fecha"
+            id="fechaEditada"
+            placeholder="Edite la fecha"
+          />
+        </form>
+        <button type="submit" id="guardarCambios" onclick="editarProducto()">
+          Guardar cambios
+        </button>
+      </dialog>
 
+      <dialog>
+        <p>Seguro que quieres eliminar este producto?</p>
+        <p id="idEliminar" hidden></p>
+
+        <div class="opciones">
+          <button>Si</button>
+          <button>No</button>
+        </div>
+      </dialog>
+    </main>
     <script src="./components/footer.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuevo Producto</title>
+  </head>
+  <body>
+    <script src="../components/header.js"></script>
+    <div class="formulario">
+      <form action="#">
+        <input
+          type="text"
+          name="nombre"
+          id="tituloProducto"
+          placeholder="Ingrese el producto"
+        />
+        <input
+          type="number"
+          name="precioPeso"
+          id="precioPeso"
+          placeholder="Ingrese el precio en pesos"
+        />
+        <input
+          type="number"
+          name="precioDolar"
+          id="precioDolar"
+          placeholder="Ingrese el precio en dolares"
+        />
+        <input
+          type="date"
+          name="fecha"
+          id="fecha"
+          placeholder="Ingrese la fecha"
+        />
+      </form>
+      <button onclick="crearProductos()" type="submit">Crear</button>
+    </div>
+    <script src="../components/footer.js"></script>
+    <script src="../main.js"></script>
+  </body>
+</html>
