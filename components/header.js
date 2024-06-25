@@ -1,6 +1,8 @@
 document.write(`
 <header>
-    <img src="../assets/logo.png" alt="">
+    <div class = "imagen"> 
+        <img src="../assets/logo.png" alt="">
+    </div>
     <nav>
         <div class="enlaces">
             <a href="../index.html"><span>Inicio</span></a>
@@ -8,5 +10,4 @@ document.write(`
         </div>
     </nav>
 </header>
-
 `);

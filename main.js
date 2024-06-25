@@ -64,7 +64,13 @@ function editarProducto() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(productoEditado),
   })
-    .then((response) => response.text())
+    .then((response) => {
+      if (response.ok) {
+        location.reload();
+      } else {
+        return response.text();
+      }
+    })
     .then((data) => console.log(data))
     .catch((error) => console.log("Error: ", error));
 
@@ -92,4 +98,8 @@ function eliminarProducto() {
     .catch((error) => console.log("Error: ", error));
 
   document.getElementById("dialogEliminar").close();
+}
+
+function cerrarDialog(id) {
+  document.getElementById(id).close();
 }

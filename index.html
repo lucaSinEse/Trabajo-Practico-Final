@@ -4,22 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trabajo Practico Final</title>
-    <!-- <link rel="stylesheet" href="./estilos.css"> -->
+    <link rel="stylesheet" href="./estilos.css">
   </head>
-  <body>
+  <body onload="mostrarProductos()">
     <script src="./components/header.js"></script>
     <main>
       <div class="c-filtro">
-        <h2>Filtro</h2>
+        <h1>Filtro</h1>
         <input
           type="text"
           name="filtro"
           id="filtro"
-          placeholder="Nombre del producto: "
+          placeholder="Nombre del producto"
         />
       </div>
       <div class="tablaDeProductos">
-        <button onclick="mostrarProductos()">Todos los productos</button>
         <table>
           <tr>
             <th>Fecha</th>
@@ -63,6 +62,7 @@
         <button type="submit" id="guardarCambios" onclick="editarProducto()">
           Guardar cambios
         </button>
+        <button onclick="cerrarDialog('formularioEditar')">Salir</button>
       </dialog>
 
       <dialog id="dialogEliminar">
@@ -71,11 +71,11 @@
 
         <div class="opciones">
           <button onclick="eliminarProducto()">Si</button>
-          <button>No</button>
+          <button onclick="cerrarDialog('dialogEliminar')">No</button>
         </div>
       </dialog>
+      <script src="./components/footer.js"></script>
     </main>
-    <script src="./components/footer.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
