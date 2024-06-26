@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trabajo Practico Final</title>
-    <link rel="stylesheet" href="./estilos.css">
+    <link rel="stylesheet" href="./estilos.css" />
   </head>
   <body onload="mostrarProductos()">
     <script src="./components/header.js"></script>
@@ -15,8 +15,9 @@
           type="text"
           name="filtro"
           id="filtro"
-          placeholder="Nombre del producto"
+          placeholder="Titulo del producto"
         />
+        <button onclick="filtrar()">Filtrar</button>
       </div>
       <div class="tablaDeProductos">
         <table>
@@ -25,8 +26,8 @@
             <th>Titulo</th>
             <th>Precio Pesos</th>
             <th>Precio Dolares</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <!-- <th>Editar</th>
+            <th>Eliminar</th> -->
           </tr>
           <tbody id="todosLosProductos"></tbody>
         </table>
@@ -70,11 +71,15 @@
         <p id="idEliminar"></p>
 
         <div class="opciones">
-          <button onclick="eliminarProducto()">Si</button>
-          <button onclick="cerrarDialog('dialogEliminar')">No</button>
+          <button onclick="eliminarProducto()" class="eliminar">Si</button>
+          <button onclick="cerrarDialog('dialogEliminar')" class="no-eliminar">
+            No
+          </button>
         </div>
       </dialog>
-      <script src="./components/footer.js"></script>
+      <div class="footer">
+        <script src="./components/footer.js"></script>
+      </div>
     </main>
     <script src="main.js"></script>
   </body>

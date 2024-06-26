@@ -39,7 +39,13 @@ function crearProductos() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(nuevoProducto),
   })
-    .then((response) => response.text())
+  .then((response) => {
+    if (response.ok) {
+      location.href= './index.html';
+    } else {
+      return response.text();
+    }
+  })
     .then((data) => console.log(data))
     .catch((error) => console.log("Error: ", error));
 }
@@ -93,7 +99,13 @@ function eliminarProducto() {
       idcod: idcodEliminar,
     }),
   })
-    .then((response) => response.text())
+  .then((response) => {
+    if (response.ok) {
+      location.reload();
+    } else {
+      return response.text();
+    }
+  })
     .then((data) => console.log(data))
     .catch((error) => console.log("Error: ", error));
 
@@ -102,4 +114,22 @@ function eliminarProducto() {
 
 function cerrarDialog(id) {
   document.getElementById(id).close();
+}
+
+function filtrar() {
+  let input = document.getElementById("filtro").value.toLowerCase();
+  console.log(input);
+
+  let contenedor = document.getElementById("todosLosProductos");
+  let hijos = contenedor.children;
+  console.log(contenedor);
+  console.log(hijos);
+
+  for (let i = 0; i < hijos.length; i++) {
+    if (hijos[i].children[1].textContent.toLowerCase().includes(input)) {
+      hijos[i].style.display = "";
+    } else{
+      hijos[i].style.display = "none";
+    }
+  }
 }

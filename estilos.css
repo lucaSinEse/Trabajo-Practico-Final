@@ -10,29 +10,28 @@ header {
   flex-direction: column;
   background-color: grey;
   box-shadow: 10px 0 10px rgba(0, 0, 0, 25%);
+  z-index: 1;
+  width: 200px;
+  padding: 20px;
 }
 
-.imagen {
-  display: flex;
-  justify-content: center;
-}
-.imagen img {
-  width: 50%;
-  height: auto;
-}
 .enlaces {
   display: flex;
   flex-direction: column;
-  margin-top: 50%;
-  gap: 5px;
-  padding: 6px;
+  gap: 20px;
 }
 .enlaces a {
-  border: 0.5em solid black;
   text-align: center;
-  text-transform: none;
   text-decoration: none;
-  color: white;
+  color: #fff;
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.enlaces a:hover {
+  background-color: #777;
 }
 
 main {
@@ -65,18 +64,135 @@ th {
 tr:hover {
   background-color: #f5f5f5;
 }
-
-.editar {
-  color: #007bff;
+button {
+  color: whitesmoke;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+.editar {
+  background-color: #007bff;
 }
 
 .eliminar {
-  color: #f50303;
-  cursor: pointer;
+  background-color: #ca1010;
 }
 
-.editar:hover, .eliminar:hover {
+.editar:hover,
+.eliminar:hover {
   text-decoration: underline;
 }
 
+.c-filtro {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.c-filtro input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+.c-filtro button {
+  background-color: #039124;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.formulario {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formulario input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.formulario button {
+  background-color: #039124;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+dialog {
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+dialog input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+dialog button {
+  background-color: #007bff;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+dialog .no-eliminar {
+  background-color: #039124;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  color: black;
+  padding: 20px;
+  text-align: end;
+}
+
+#texto-footer {
+  font-size: 20px;
+  margin: 0;
+}
