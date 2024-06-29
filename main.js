@@ -9,7 +9,6 @@ function mostrarProductos() {
 function imprimirProductos(productos) {
   let html = ` `;
   let idcod;
-  console.log(productos);
   for (let index = 0; index < productos.length; index++) {
     idcod = productos[index].idcod;
     html += `
@@ -27,7 +26,6 @@ function imprimirProductos(productos) {
 }
 
 function abrirFormulario(idcod) {
-  console.log(idcod);
   let dialog = document.getElementById("formularioEditar");
   dialog.showModal();
   document.getElementById("id").value = idcod;
@@ -61,7 +59,6 @@ function editarProducto() {
 }
 
 function abrirDialogEliminar(idcod) {
-  console.log(idcod);
   document.getElementById("dialogEliminar").showModal();
   document.getElementById("idEliminar").textContent = idcod;
 }
@@ -91,12 +88,9 @@ function cerrarDialog(id) {
 
 function filtrar() {
   let input = document.getElementById("filtro").value.toLowerCase();
-  console.log(input);
 
   let contenedor = document.getElementById("todosLosProductos");
   let hijos = contenedor.children;
-  console.log(contenedor);
-  console.log(hijos);
 
   for (let i = 0; i < hijos.length; i++) {
     if (hijos[i].children[1].textContent.toLowerCase().includes(input)) {
