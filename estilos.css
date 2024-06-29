@@ -20,6 +20,7 @@ header {
   flex-direction: column;
   gap: 20px;
 }
+
 .enlaces a {
   text-align: center;
   text-decoration: none;
@@ -46,7 +47,7 @@ main {
 }
 
 .tablaDeProductos table {
-  table-layout: fixed;
+  table-layout: auto;
   border-collapse: collapse;
 }
 
@@ -55,6 +56,7 @@ td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  text-transform: capitalize;
 }
 
 th {
@@ -64,6 +66,7 @@ th {
 tr:hover {
   background-color: #f5f5f5;
 }
+
 button {
   color: whitesmoke;
   cursor: pointer;
@@ -71,6 +74,7 @@ button {
   border-radius: 5px;
   border: none;
 }
+
 .editar {
   background-color: #007bff;
 }
@@ -114,12 +118,14 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .formulario {
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .formulario form {
   display: flex;
   flex-direction: column;
@@ -195,4 +201,79 @@ dialog .no-eliminar {
 #texto-footer {
   font-size: 20px;
   margin: 0;
+}
+
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  header {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .enlaces {
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .enlaces a {
+    flex-grow: 1;
+    margin: 0 5px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .c-filtro {
+    margin-bottom: 16px;
+  }
+
+  .tablaDeProductos table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .formulario {
+    padding: 16px;
+  }
+}
+
+/* Media Query para pantallas de 900px o menos */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  header {
+    width: 100%;
+    order: 2;
+  }
+  .enlaces {
+    flex-direction: row;
+  }
+  main {
+    order: 1;
+    width: 100%;
+  }
+
+  .c-filtro {
+    order: 1;
+  }
+
+  .tablaDeProductos {
+    order: 2;
+  }
+
+  .footer {
+    display: none;
+  }
 }

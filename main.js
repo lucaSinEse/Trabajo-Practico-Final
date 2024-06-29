@@ -16,38 +16,14 @@ function imprimirProductos(productos) {
             <tr>
                 <td>${productos[index].fecha}</td>
                 <td>${productos[index].titulo}</td>
-                <td>${productos[index].precioPeso}</td>
-                <td>${productos[index].precioDolar}</td>
+                <td> $${productos[index].precioPeso}</td>
+                <td>$${productos[index].precioDolar}</td>
                 <td><button class='editar' onclick="abrirFormulario('${idcod}')">Editar</button></td>
                 <td><button class='eliminar' onclick= abrirDialogEliminar('${idcod}')>Eliminar</button></td>
             </tr>
         `;
   }
   document.getElementById("todosLosProductos").innerHTML = html;
-}
-
-function crearProductos() {
-  let nuevoProducto = {
-    titulo: document.getElementById("tituloProducto").value,
-    precioPeso: document.getElementById("precioPeso").value,
-    precioDolar: document.getElementById("precioDolar").value,
-    fecha: document.getElementById("fecha").value,
-  };
-
-  fetch(URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(nuevoProducto),
-  })
-  .then((response) => {
-    if (response.ok) {
-      location.href= './index.html';
-    } else {
-      return response.text();
-    }
-  })
-    .then((data) => console.log(data))
-    .catch((error) => console.log("Error: ", error));
 }
 
 function abrirFormulario(idcod) {
@@ -60,27 +36,28 @@ function abrirFormulario(idcod) {
 function editarProducto() {
   let productoEditado = {
     idcod: document.getElementById("id").value,
-    titulo: document.getElementById("tituloProductoEditado").value,
-    precioPeso: document.getElementById("precioPesoEditado").value,
-    precioDolar: document.getElementById("precioDolarEditado").value,
-    fecha: document.getElementById("fechaEditada").value,
+    titulo: document
+      .getElementById("tituloProductoEditado")
+      .value.trim()
+      .toLowerCase(),
+    precioPeso: document.getElementById("precioPesoEditado").value.trim(),
+    precioDolar: document.getElementById("precioDolarEditado").value.trim(),
+    fecha: document.getElementById("fechaEditada").value.trim(),
   };
   fetch(URL, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(productoEditado),
   })
-    .then((response) => {
-      if (response.ok) {
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "OK") {
         location.reload();
       } else {
-        return response.text();
+        alert(data);
       }
     })
-    .then((data) => console.log(data))
     .catch((error) => console.log("Error: ", error));
-
-  document.getElementById("formularioEditar").close();
 }
 
 function abrirDialogEliminar(idcod) {
@@ -99,17 +76,13 @@ function eliminarProducto() {
       idcod: idcodEliminar,
     }),
   })
-  .then((response) => {
-    if (response.ok) {
-      location.reload();
-    } else {
-      return response.text();
-    }
-  })
-    .then((data) => console.log(data))
+    .then((response) => response.text())
+    .then((data) => {
+      if (data === "OK") {
+        location.reload();
+      }
+    })
     .catch((error) => console.log("Error: ", error));
-
-  document.getElementById("dialogEliminar").close();
 }
 
 function cerrarDialog(id) {
@@ -128,7 +101,7 @@ function filtrar() {
   for (let i = 0; i < hijos.length; i++) {
     if (hijos[i].children[1].textContent.toLowerCase().includes(input)) {
       hijos[i].style.display = "";
-    } else{
+    } else {
       hijos[i].style.display = "none";
     }
   }

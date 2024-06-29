@@ -15,7 +15,7 @@
           type="text"
           name="filtro"
           id="filtro"
-          placeholder="Titulo del producto"
+          placeholder="Título del producto"
         />
         <button onclick="filtrar()">Filtrar</button>
       </div>
@@ -23,9 +23,9 @@
         <table>
           <tr>
             <th>Fecha</th>
-            <th>Titulo</th>
+            <th>Título</th>
             <th>Precio Pesos</th>
-            <th>Precio Dolares</th>
+            <th>Precio Dólares</th>
             <!-- <th>Editar</th>
             <th>Eliminar</th> -->
           </tr>
@@ -39,25 +39,25 @@
             type="text"
             name="nombre"
             id="tituloProductoEditado"
-            placeholder="Edite el producto"
+            placeholder="Título del producto"
           />
           <input
             type="number"
             name="precioPeso"
             id="precioPesoEditado"
-            placeholder="Edite el precio en pesos"
+            placeholder="Precio en pesos"
           />
           <input
             type="number"
             name="precioDolar"
             id="precioDolarEditado"
-            placeholder="Edite el precio en dolares"
+            placeholder="Precio en dólares"
           />
           <input
             type="date"
             name="fecha"
             id="fechaEditada"
-            placeholder="Edite la fecha"
+            placeholder="Fecha"
           />
         </form>
         <button type="submit" id="guardarCambios" onclick="editarProducto()">
@@ -67,7 +67,7 @@
       </dialog>
 
       <dialog id="dialogEliminar">
-        <p>Seguro que quieres eliminar este producto?</p>
+        <p>¿Seguro que quieres eliminar este producto?</p>
         <p id="idEliminar"></p>
 
         <div class="opciones">
